@@ -5,6 +5,7 @@ import com.api.parkingcontrol.repositories.ParkingSpotRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class ParkingSpotService {
@@ -21,7 +22,19 @@ public class ParkingSpotService {
         return parkingSpotRepository.save(parkingSpotModel);
     }
 
-    public boolean existsByLicensePlateCar(ParkingSpotModel parkingSpotModel){
-        return parkingSpotRepository.existsByLicensePlateCar(parkingSpotModel.getLicensePlateCar());
+    public boolean existsByLicensePlateCar(String licencePlateCar){
+        return parkingSpotRepository.existsByLicensePlateCar(licencePlateCar);
+    }
+
+    public boolean existsByParkingSpotNumber(String parkingSpotNumber) {
+        return parkingSpotRepository.existsByParkingSpotNumber(parkingSpotNumber);
+    }
+
+    public boolean existsByApartmentAndBlock(String apartment, String block){
+        return parkingSpotRepository.existsByApartmentAndBlock(apartment, block);
+    }
+
+    public List<ParkingSpotModel> findAll(){
+        return parkingSpotRepository.findAll();
     }
 }
