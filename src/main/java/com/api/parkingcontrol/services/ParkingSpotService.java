@@ -20,4 +20,8 @@ public class ParkingSpotService {
     public ParkingSpotModel save(ParkingSpotModel parkingSpotModel) {
         return parkingSpotRepository.save(parkingSpotModel);
     }
+
+    public boolean existsByLicensePlateCar(ParkingSpotModel parkingSpotModel){
+        return parkingSpotRepository.existsByLicensePlateCar(parkingSpotModel.getLicensePlateCar());
+    }
 }

@@ -9,7 +9,7 @@ public class ParkingSpotDto {
     @NotBlank(message = "parkingSpotNumber cannot be null.")
     @Column(nullable = false, unique = true, length = 10)
     private String parkingSpotNumber;
-    @Size(max = 7)
+    @Size(max = 7, message = "licensePlateCar must have 7 caracters.")
     @Column(nullable = false, unique = true, length = 7)
     private String licensePlateCar;
     @NotBlank
