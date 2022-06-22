@@ -6,7 +6,7 @@ import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 public class ParkingSpotDto {
-    @NotBlank
+    @NotBlank(message = "parkingSpotNumber cannot be null.")
     @Column(nullable = false, unique = true, length = 10)
     private String parkingSpotNumber;
     @Size(max = 7)
