@@ -70,4 +70,27 @@ public class ParkingSpotController {
         parkingSpotService.delete(id);
         return ResponseEntity.status(HttpStatus.OK).body("Parking spot delete succesfully!");
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> deleteById(@PathVariable(value = "id") UUID id,
+                                             @RequestBody @Valid ParkingSpotDto parkingSpotDto){
+        Optional<ParkingSpotModel> parkingSpotModelOptional = parkingSpotService.findById(id);
+
+        if (parkingSpotModelOptional.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Parking spot not found!");
+        }
+
+        var parkingSpotModel = parkingSpotModelOptional.get();
+        parkingSpotModel.setParkingSpotNumber(parkingSpotDto.getParkingSpotNumber());
+        parkingSpotModel.setModelCar(parkingSpotDto.getModelCar());
+        parkingSpotModel.setApartment(parkingSpotDto.getApartment());
+        parkingSpotModel.setBlock(parkingSpotDto.getBlock());
+        parkingSpotModel.setBrandCar(parkingSpotDto.getBrandCar());
+        parkingSpotModel.setColorCar(parkingSpotDto.getColorCar());
+        parkingSpotModel.setLicensePlateCar(parkingSpotDto.getLicensePlateCar());
+        parkingSpotModel.setResponsibleName(parkingSpotDto.getResponsibleName());
+        parkingSpotService.save(parkingSpotModel);
+
+        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotModel);
+    }
 }
