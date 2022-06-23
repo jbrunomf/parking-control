@@ -68,6 +68,6 @@ public class ParkingSpotController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Parking spot not found!");
         }
         parkingSpotService.delete(id);
-        return ResponseEntity.status(HttpStatus.OK).body(parkingSpotModelOptional);
+        return ResponseEntity.status(HttpStatus.OK).body("Parking spot delete succesfully!");
     }
 }
