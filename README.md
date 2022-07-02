@@ -10,7 +10,7 @@ Validações Adicionadas:
 Projeto desenvolvido para fins de aprendizado.
 <hr>
 
-## Tecnologias utilizadas:
+## Tecnologias / libs utilizadas:
 - Spring Framework
 - Spring Web
 - Spring JPA
